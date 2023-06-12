@@ -1,3 +1,8 @@
+
+
+
+[http://zuiai.today/](http://zuiai.today/)
+
 This is a [Next.js](https://nextjs.org/)-[Mantine](https://mantine.dev/)-[TypeScript](https://www.typescriptlang.org/) template. Not a perfect "what I use template" but slowly will add and modify this repo as I do frontend dev more in the future.
 
 ## Getting Started
