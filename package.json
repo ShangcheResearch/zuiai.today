@@ -1,32 +1,19 @@
 {
-  "name": "@lqiong/web-v2",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.11.0",
-    "@emotion/server": "^11.11.0",
-    "@mantine/core": "^6.0.10",
-    "@mantine/form": "6.0.10",
-    "@mantine/hooks": "^6.0.10",
-    "@mantine/next": "^6.0.10",
-    "next": "^13.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "dev:web": "turbo run dev --filter=web",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@types/node": "^20.1.0",
-    "@types/react": "^18.2.6",
-    "@types/react-dom": "^18.2.4",
-    "typescript": "^5.0.4"
+    "@turbo/gen": "^1.9.7",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "prettier": "^2.5.1",
+    "turbo": "latest"
   },
-  "prettier": {
-    "bracketSameLine": true,
-    "printWidth": 100
-  }
+  "packageManager": "pnpm@7.15.0",
+  "name": "zuiai.repo"
 }
