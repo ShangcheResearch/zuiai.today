@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {HeaderSimple} from "./header";
 import {oneOneApi} from "../lib/api";
 import {useQuery} from "react-query";
-import {AspectRatio, Box, Card, Container, createStyles, Flex, Image, SimpleGrid, Text} from "@mantine/core";
+import {AspectRatio, Box, Card, Container, createStyles, Flex, Image, SimpleGrid, Skeleton, Text} from "@mantine/core";
 import {AIArticle} from "@app/yueleme-api/dist/index";
 import dayjs from "dayjs";
 
@@ -48,13 +48,24 @@ export function ArticlesCardsGrid({data}: {data: AIArticle[]}) {
 }
 export function Posts() {
 
-    const {data} = useQuery(oneOneApi.getApiMeditationV1TapirAiPosts.toString(), () => oneOneApi.getApiMeditationV1TapirAiPosts())
+    const {data, isLoading} = useQuery(oneOneApi.getApiMeditationV1TapirAiPosts.toString(), () => oneOneApi.getApiMeditationV1TapirAiPosts())
 
     return (
         <>
             <HeaderSimple links={[{link: '/', label: 'Home'}]}></HeaderSimple>
             <Flex>
                 <Container w={'100%'}>
+                    {
+                        isLoading ===true && (
+                            <>
+                                <Box mt={20}>
+                                    <Skeleton height={8} mt={6} width="50%" radius="xl" />
+                                    <Skeleton height={8} mt={6} width="70%" radius="xl" />
+                                    <Skeleton height={8} mt={6} width="80%" radius="xl" />
+                                </Box>
+                            </>
+                        )
+                    }
                     <ArticlesCardsGrid data={data?.records ?? []} />
                 </Container>
             </Flex>
