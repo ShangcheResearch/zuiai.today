@@ -3,7 +3,7 @@ import {HeaderSimple} from "./header";
 import {oneOneApi} from "../lib/api";
 import {useQuery} from "react-query";
 import {AspectRatio, Box, Card, Container, createStyles, Flex, Image, SimpleGrid, Skeleton, Text} from "@mantine/core";
-import {AIArticle} from "@app/yueleme-api/dist/index";
+import {AIArticle} from "@app/yueleme-api";
 import dayjs from "dayjs";
 
 const useStyles = createStyles((theme) => ({
