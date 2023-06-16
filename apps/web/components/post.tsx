@@ -56,7 +56,7 @@ export function Posts() {
             <Flex>
                 <Container w={'100%'}>
                     {
-                        isLoading ===true && (
+                        isLoading && (
                             <>
                                 <Box mt={20}>
                                     <Skeleton height={8} mt={6} width="50%" radius="xl" />
