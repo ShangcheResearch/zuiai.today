@@ -2,9 +2,22 @@ import React, {useEffect} from "react";
 import {HeaderSimple} from "./header";
 import {oneOneApi} from "../lib/api";
 import {useQuery} from "react-query";
-import {AspectRatio, Box, Card, Container, createStyles, Flex, Image, SimpleGrid, Skeleton, Text} from "@mantine/core";
+import {
+    AspectRatio,
+    Box,
+    Card,
+    Container,
+    createStyles,
+    Flex,
+    Image,
+    SimpleGrid,
+    Skeleton,
+    Text
+} from "@mantine/core";
 import {AIArticle} from "@app/yueleme-api";
+import {Overlay} from '@mantine/core';
 import dayjs from "dayjs";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
     card: {
@@ -21,13 +34,17 @@ const useStyles = createStyles((theme) => ({
         fontWeight: 600,
     },
 }));
-export function ArticlesCardsGrid({data}: {data: AIArticle[]}) {
-    const { classes } = useStyles();
+
+export function ArticlesCardsGrid({data}: { data: AIArticle[] }) {
+    const {classes} = useStyles();
 
     const cards = data.map((article) => (
-        <Card key={article.title} p="md" radius="md" component="a" href="#" className={classes.card}>
+        <Card key={article.title} p="md" radius="md" component="a"
+              target={"_blank"}
+              href={article.url ?? '/'} className={classes.card}>
             <AspectRatio ratio={1920 / 1080}>
-                <Image src={'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80'} />
+                <Image
+                    src={'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80'}/>
             </AspectRatio>
             <Text color="dimmed" size="xs" transform="uppercase" weight={700} mt="md">
                 {dayjs(article.date).format("YYYY-MM-DD")}
@@ -40,15 +57,19 @@ export function ArticlesCardsGrid({data}: {data: AIArticle[]}) {
 
     return (
         <Container py="xl">
-            <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+            <SimpleGrid cols={2} breakpoints={[{maxWidth: 'sm', cols: 1}]}>
                 {cards}
             </SimpleGrid>
         </Container>
     );
 }
+
 export function Posts() {
 
-    const {data, isLoading} = useQuery(oneOneApi.getApiMeditationV1TapirAiPosts.toString(), () => oneOneApi.getApiMeditationV1TapirAiPosts())
+    const {
+        data,
+        isLoading
+    } = useQuery(oneOneApi.getApiMeditationV1TapirAiPosts.toString(), () => oneOneApi.getApiMeditationV1TapirAiPosts())
 
     return (
         <>
@@ -59,14 +80,14 @@ export function Posts() {
                         isLoading && (
                             <>
                                 <Box mt={20}>
-                                    <Skeleton height={8} mt={6} width="50%" radius="xl" />
-                                    <Skeleton height={8} mt={6} width="70%" radius="xl" />
-                                    <Skeleton height={8} mt={6} width="80%" radius="xl" />
+                                    <Skeleton height={8} mt={6} width="50%" radius="xl"/>
+                                    <Skeleton height={8} mt={6} width="70%" radius="xl"/>
+                                    <Skeleton height={8} mt={6} width="80%" radius="xl"/>
                                 </Box>
                             </>
                         )
                     }
-                    <ArticlesCardsGrid data={data?.records ?? []} />
+                    <ArticlesCardsGrid data={data?.records ?? []}/>
                 </Container>
             </Flex>
         </>
