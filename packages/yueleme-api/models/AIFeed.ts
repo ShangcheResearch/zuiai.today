@@ -12,9 +12,8 @@
 
 import { HttpFile } from '../http/http';
 
-export class AIArticle {
-    'title': string;
-    'markdown': string;
+export class AIFeed {
+    'htmlContent': string;
     'date': string;
     'author': string;
     'url'?: string;
@@ -23,14 +22,8 @@ export class AIArticle {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "title",
-            "baseName": "title",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "markdown",
-            "baseName": "markdown",
+            "name": "htmlContent",
+            "baseName": "htmlContent",
             "type": "string",
             "format": ""
         },
@@ -54,7 +47,7 @@ export class AIArticle {
         }    ];
 
     static getAttributeTypeMap() {
-        return AIArticle.attributeTypeMap;
+        return AIFeed.attributeTypeMap;
     }
 
     public constructor() {

@@ -1,4 +1,5 @@
 export * from '../models/AIArticle';
+export * from '../models/AIFeed';
 export * from '../models/AIProject';
 export * from '../models/AIPrompt';
 export * from '../models/AiSearchResult';
@@ -7,11 +8,13 @@ export * from '../models/ConstantMSG';
 export * from '../models/CourseItemDaka';
 export * from '../models/NoSqlPagingListDataCourseItemDaka';
 export * from '../models/NoSqlPagingListDataPageMarkAIArticle';
+export * from '../models/NoSqlPagingListDataPageMarkAIFeed';
 export * from '../models/NoSqlPagingListDataPageMarkAIProject';
 export * from '../models/NoSqlPagingListDataPageMarkAIPrompt';
 export * from '../models/RetMsg';
 
 import { AIArticle } from '../models/AIArticle';
+import { AIFeed } from '../models/AIFeed';
 import { AIProject        } from '../models/AIProject';
 import { AIPrompt } from '../models/AIPrompt';
 import { AiSearchResult } from '../models/AiSearchResult';
@@ -20,6 +23,7 @@ import { ConstantMSG } from '../models/ConstantMSG';
 import { CourseItemDaka } from '../models/CourseItemDaka';
 import { NoSqlPagingListDataCourseItemDaka      } from '../models/NoSqlPagingListDataCourseItemDaka';
 import { NoSqlPagingListDataPageMarkAIArticle        } from '../models/NoSqlPagingListDataPageMarkAIArticle';
+import { NoSqlPagingListDataPageMarkAIFeed        } from '../models/NoSqlPagingListDataPageMarkAIFeed';
 import { NoSqlPagingListDataPageMarkAIProject        } from '../models/NoSqlPagingListDataPageMarkAIProject';
 import { NoSqlPagingListDataPageMarkAIPrompt        } from '../models/NoSqlPagingListDataPageMarkAIPrompt';
 import { RetMsg   } from '../models/RetMsg';
@@ -50,12 +54,14 @@ let enumsMap: Set<string> = new Set<string>([
 
 let typeMap: {[index: string]: any} = {
     "AIArticle": AIArticle,
+    "AIFeed": AIFeed,
     "AIProject": AIProject,
     "AIPrompt": AIPrompt,
     "AiSearchResult": AiSearchResult,
     "CourseItemDaka": CourseItemDaka,
     "NoSqlPagingListDataCourseItemDaka": NoSqlPagingListDataCourseItemDaka,
     "NoSqlPagingListDataPageMarkAIArticle": NoSqlPagingListDataPageMarkAIArticle,
+    "NoSqlPagingListDataPageMarkAIFeed": NoSqlPagingListDataPageMarkAIFeed,
     "NoSqlPagingListDataPageMarkAIProject": NoSqlPagingListDataPageMarkAIProject,
     "NoSqlPagingListDataPageMarkAIPrompt": NoSqlPagingListDataPageMarkAIPrompt,
     "RetMsg": RetMsg,

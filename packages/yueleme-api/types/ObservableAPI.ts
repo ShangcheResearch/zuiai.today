@@ -3,6 +3,7 @@ import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
 import { AIArticle } from '../models/AIArticle';
+import { AIFeed } from '../models/AIFeed';
 import { AIProject } from '../models/AIProject';
 import { AIPrompt } from '../models/AIPrompt';
 import { AiSearchResult } from '../models/AiSearchResult';
@@ -11,6 +12,7 @@ import { ConstantMSG } from '../models/ConstantMSG';
 import { CourseItemDaka } from '../models/CourseItemDaka';
 import { NoSqlPagingListDataCourseItemDaka } from '../models/NoSqlPagingListDataCourseItemDaka';
 import { NoSqlPagingListDataPageMarkAIArticle } from '../models/NoSqlPagingListDataPageMarkAIArticle';
+import { NoSqlPagingListDataPageMarkAIFeed } from '../models/NoSqlPagingListDataPageMarkAIFeed';
 import { NoSqlPagingListDataPageMarkAIProject } from '../models/NoSqlPagingListDataPageMarkAIProject';
 import { NoSqlPagingListDataPageMarkAIPrompt } from '../models/NoSqlPagingListDataPageMarkAIPrompt';
 import { RetMsg } from '../models/RetMsg';
@@ -29,6 +31,27 @@ export class ObservableDefaultApi {
         this.configuration = configuration;
         this.requestFactory = requestFactory || new DefaultApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new DefaultApiResponseProcessor();
+    }
+
+    /**
+     */
+    public getApiMeditationV1TapirAiFeeds(_options?: Configuration): Observable<NoSqlPagingListDataPageMarkAIFeed> {
+        const requestContextPromise = this.requestFactory.getApiMeditationV1TapirAiFeeds(_options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getApiMeditationV1TapirAiFeeds(rsp)));
+            }));
     }
 
     /**

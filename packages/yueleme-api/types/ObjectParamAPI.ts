@@ -2,6 +2,7 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import { Configuration} from '../configuration'
 
 import { AIArticle } from '../models/AIArticle';
+import { AIFeed } from '../models/AIFeed';
 import { AIProject } from '../models/AIProject';
 import { AIPrompt } from '../models/AIPrompt';
 import { AiSearchResult } from '../models/AiSearchResult';
@@ -10,12 +11,16 @@ import { ConstantMSG } from '../models/ConstantMSG';
 import { CourseItemDaka } from '../models/CourseItemDaka';
 import { NoSqlPagingListDataCourseItemDaka } from '../models/NoSqlPagingListDataCourseItemDaka';
 import { NoSqlPagingListDataPageMarkAIArticle } from '../models/NoSqlPagingListDataPageMarkAIArticle';
+import { NoSqlPagingListDataPageMarkAIFeed } from '../models/NoSqlPagingListDataPageMarkAIFeed';
 import { NoSqlPagingListDataPageMarkAIProject } from '../models/NoSqlPagingListDataPageMarkAIProject';
 import { NoSqlPagingListDataPageMarkAIPrompt } from '../models/NoSqlPagingListDataPageMarkAIPrompt';
 import { RetMsg } from '../models/RetMsg';
 
 import { ObservableDefaultApi } from "./ObservableAPI";
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
+
+export interface DefaultApiGetApiMeditationV1TapirAiFeedsRequest {
+}
 
 export interface DefaultApiGetApiMeditationV1TapirAiPostsRequest {
 }
@@ -40,6 +45,13 @@ export class ObjectDefaultApi {
 
     public constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor) {
         this.api = new ObservableDefaultApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public getApiMeditationV1TapirAiFeeds(param: DefaultApiGetApiMeditationV1TapirAiFeedsRequest = {}, options?: Configuration): Promise<NoSqlPagingListDataPageMarkAIFeed> {
+        return this.api.getApiMeditationV1TapirAiFeeds( options).toPromise();
     }
 
     /**

@@ -12,6 +12,7 @@ http/isomorphic-fetch.ts
 index.ts
 middleware.ts
 models/AIArticle.ts
+models/AIFeed.ts
 models/AIProject.ts
 models/AIPrompt.ts
 models/AiSearchResult.ts
@@ -20,6 +21,7 @@ models/ConstantMSG.ts
 models/CourseItemDaka.ts
 models/NoSqlPagingListDataCourseItemDaka.ts
 models/NoSqlPagingListDataPageMarkAIArticle.ts
+models/NoSqlPagingListDataPageMarkAIFeed.ts
 models/NoSqlPagingListDataPageMarkAIProject.ts
 models/NoSqlPagingListDataPageMarkAIPrompt.ts
 models/ObjectSerializer.ts

@@ -11,6 +11,7 @@ import {SecurityAuthentication} from '../auth/auth';
 import { AiSearchResult } from '../models/AiSearchResult';
 import { NoSqlPagingListDataCourseItemDaka } from '../models/NoSqlPagingListDataCourseItemDaka';
 import { NoSqlPagingListDataPageMarkAIArticle } from '../models/NoSqlPagingListDataPageMarkAIArticle';
+import { NoSqlPagingListDataPageMarkAIFeed } from '../models/NoSqlPagingListDataPageMarkAIFeed';
 import { NoSqlPagingListDataPageMarkAIProject } from '../models/NoSqlPagingListDataPageMarkAIProject';
 import { NoSqlPagingListDataPageMarkAIPrompt } from '../models/NoSqlPagingListDataPageMarkAIPrompt';
 import { RetMsg } from '../models/RetMsg';
@@ -19,6 +20,28 @@ import { RetMsg } from '../models/RetMsg';
  * no description
  */
 export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
+
+    /**
+     */
+    public async getApiMeditationV1TapirAiFeeds(_options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // Path Params
+        const localVarPath = '/api-meditation/v1/tapir/ai/feeds';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
 
     /**
      */
@@ -155,6 +178,42 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class DefaultApiResponseProcessor {
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getApiMeditationV1TapirAiFeeds
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getApiMeditationV1TapirAiFeeds(response: ResponseContext): Promise<NoSqlPagingListDataPageMarkAIFeed > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: NoSqlPagingListDataPageMarkAIFeed = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "NoSqlPagingListDataPageMarkAIFeed", ""
+            ) as NoSqlPagingListDataPageMarkAIFeed;
+            return body;
+        }
+        if (isCodeInRange("0", response.httpStatusCode)) {
+            const body: RetMsg = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RetMsg", ""
+            ) as RetMsg;
+            throw new ApiException<RetMsg>(response.httpStatusCode, "", body, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: NoSqlPagingListDataPageMarkAIFeed = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "NoSqlPagingListDataPageMarkAIFeed", ""
+            ) as NoSqlPagingListDataPageMarkAIFeed;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
 
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
