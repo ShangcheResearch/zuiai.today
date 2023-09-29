@@ -1,19 +1,18 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import React, { FC } from "react";
 
 import dynamic from "next/dynamic";
 import NoSsrPosts from "../../components/load";
 import { useParams } from "next/navigation";
+import { useSearchParams } from "next/dist/client/components/navigation";
 
 const A = dynamic(() => Promise.resolve(NoSsrPosts), {
   ssr: false,
 });
 
 export default function Tags() {
-  const router = useRouter();
-  const p = useParams();
-  const tag = p?.tag ?? "AI";
+  const p = useSearchParams();
+  const tag = p?.get("tag") ?? "AI";
   return (
     <>
       <Head>

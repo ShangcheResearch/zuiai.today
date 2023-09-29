@@ -11,7 +11,6 @@ export default function Page() {
 
   return (
     <>
-
       <HeaderSimple links={[{ link: "/", label: "Home" }]}></HeaderSimple>
       <ArticlesCardsGrid></ArticlesCardsGrid>
     </>
