@@ -1,6 +1,8 @@
 import { Anchor, Button, Stack, Text } from "@mantine/core";
 import Head from "next/head";
 import { Posts } from "../components/post";
+import AuthChecking from "../components/auth";
+import React from "react";
 
 export default function Home() {
   return (
@@ -12,6 +14,7 @@ export default function Home() {
       </Head>
 
       <Posts></Posts>
+      <AuthChecking></AuthChecking>
     </>
   );
 }
