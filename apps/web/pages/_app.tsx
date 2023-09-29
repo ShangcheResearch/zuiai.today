@@ -3,6 +3,7 @@ import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 import { queryClient } from "../components/react-query";
 import { QueryClientProvider } from "react-query";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -19,10 +20,12 @@ export default function App(props: AppProps) {
       </Head>
 
       <QueryClientProvider client={queryClient}>
-        <MantineProvider withGlobalStyles withNormalizeCSS theme={{}}>
-          {/* @ts-ignore*/}
-          <Component {...pageProps} />
-        </MantineProvider>
+        <UserProvider>
+          <MantineProvider withGlobalStyles withNormalizeCSS theme={{}}>
+            {/* @ts-ignore*/}
+            <Component {...pageProps} />
+          </MantineProvider>
+        </UserProvider>
       </QueryClientProvider>
     </>
   );

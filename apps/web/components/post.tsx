@@ -17,9 +17,7 @@ import {
   Text,
 } from "@mantine/core";
 import { AIArticle } from "@app/yueleme-api";
-import { Overlay } from "@mantine/core";
 import dayjs from "dayjs";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 const useStyles = createStyles((theme) => ({
