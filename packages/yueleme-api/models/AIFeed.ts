@@ -16,6 +16,7 @@ export class AIFeed {
     'htmlContent': string;
     'date': string;
     'author': string;
+    'tags'?: Array<string>;
     'url'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -37,6 +38,12 @@ export class AIFeed {
             "name": "author",
             "baseName": "author",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "tags",
+            "baseName": "tags",
+            "type": "Array<string>",
             "format": ""
         },
         {

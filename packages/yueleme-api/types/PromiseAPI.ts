@@ -30,16 +30,21 @@ export class PromiseDefaultApi {
     }
 
     /**
+     * @param pageMark 
+     * @param pageSize 
      */
-    public getApiMeditationV1TapirAiFeeds(_options?: Configuration): Promise<NoSqlPagingListDataPageMarkAIFeed> {
-        const result = this.api.getApiMeditationV1TapirAiFeeds(_options);
+    public getApiMeditationV1TapirAiFeeds(pageMark?: number, pageSize?: number, _options?: Configuration): Promise<NoSqlPagingListDataPageMarkAIFeed> {
+        const result = this.api.getApiMeditationV1TapirAiFeeds(pageMark, pageSize, _options);
         return result.toPromise();
     }
 
     /**
+     * @param pageMark 
+     * @param pageSize 
+     * @param tag 
      */
-    public getApiMeditationV1TapirAiPosts(_options?: Configuration): Promise<NoSqlPagingListDataPageMarkAIArticle> {
-        const result = this.api.getApiMeditationV1TapirAiPosts(_options);
+    public getApiMeditationV1TapirAiPosts(pageMark?: number, pageSize?: number, tag?: string, _options?: Configuration): Promise<NoSqlPagingListDataPageMarkAIArticle> {
+        const result = this.api.getApiMeditationV1TapirAiPosts(pageMark, pageSize, tag, _options);
         return result.toPromise();
     }
 
@@ -58,9 +63,11 @@ export class PromiseDefaultApi {
     }
 
     /**
+     * @param pageMark 
+     * @param pageSize 
      */
-    public getApiMeditationV1TapirAiSearch(_options?: Configuration): Promise<AiSearchResult> {
-        const result = this.api.getApiMeditationV1TapirAiSearch(_options);
+    public getApiMeditationV1TapirAiSearch(pageMark?: number, pageSize?: number, _options?: Configuration): Promise<AiSearchResult> {
+        const result = this.api.getApiMeditationV1TapirAiSearch(pageMark, pageSize, _options);
         return result.toPromise();
     }
 

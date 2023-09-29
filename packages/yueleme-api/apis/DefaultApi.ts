@@ -22,9 +22,13 @@ import { RetMsg } from '../models/RetMsg';
 export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
+     * @param pageMark 
+     * @param pageSize 
      */
-    public async getApiMeditationV1TapirAiFeeds(_options?: Configuration): Promise<RequestContext> {
+    public async getApiMeditationV1TapirAiFeeds(pageMark?: number, pageSize?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+
 
         // Path Params
         const localVarPath = '/api-meditation/v1/tapir/ai/feeds';
@@ -32,6 +36,16 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (pageMark !== undefined) {
+            requestContext.setQueryParam("pageMark", ObjectSerializer.serialize(pageMark, "number", "int64"));
+        }
+
+        // Query Params
+        if (pageSize !== undefined) {
+            requestContext.setQueryParam("pageSize", ObjectSerializer.serialize(pageSize, "number", ""));
+        }
 
 
         
@@ -44,9 +58,15 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * @param pageMark 
+     * @param pageSize 
+     * @param tag 
      */
-    public async getApiMeditationV1TapirAiPosts(_options?: Configuration): Promise<RequestContext> {
+    public async getApiMeditationV1TapirAiPosts(pageMark?: number, pageSize?: number, tag?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+
+
 
         // Path Params
         const localVarPath = '/api-meditation/v1/tapir/ai/posts';
@@ -54,6 +74,21 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (pageMark !== undefined) {
+            requestContext.setQueryParam("pageMark", ObjectSerializer.serialize(pageMark, "number", "int64"));
+        }
+
+        // Query Params
+        if (pageSize !== undefined) {
+            requestContext.setQueryParam("pageSize", ObjectSerializer.serialize(pageSize, "number", ""));
+        }
+
+        // Query Params
+        if (tag !== undefined) {
+            requestContext.setQueryParam("tag", ObjectSerializer.serialize(tag, "string", ""));
+        }
 
 
         
@@ -110,9 +145,13 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * @param pageMark 
+     * @param pageSize 
      */
-    public async getApiMeditationV1TapirAiSearch(_options?: Configuration): Promise<RequestContext> {
+    public async getApiMeditationV1TapirAiSearch(pageMark?: number, pageSize?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+
 
         // Path Params
         const localVarPath = '/api-meditation/v1/tapir/ai/search';
@@ -120,6 +159,16 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (pageMark !== undefined) {
+            requestContext.setQueryParam("pageMark", ObjectSerializer.serialize(pageMark, "number", "int64"));
+        }
+
+        // Query Params
+        if (pageSize !== undefined) {
+            requestContext.setQueryParam("pageSize", ObjectSerializer.serialize(pageSize, "number", ""));
+        }
 
 
         
@@ -195,6 +244,13 @@ export class DefaultApiResponseProcessor {
             ) as NoSqlPagingListDataPageMarkAIFeed;
             return body;
         }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: string = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "Invalid value for: query parameter pageMark, Invalid value for: query parameter pageSize", body, response.headers);
+        }
         if (isCodeInRange("0", response.httpStatusCode)) {
             const body: RetMsg = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -230,6 +286,13 @@ export class DefaultApiResponseProcessor {
                 "NoSqlPagingListDataPageMarkAIArticle", ""
             ) as NoSqlPagingListDataPageMarkAIArticle;
             return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: string = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "Invalid value for: query parameter pageMark, Invalid value for: query parameter pageSize, Invalid value for: query parameter tag", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
             const body: RetMsg = ObjectSerializer.deserialize(
@@ -338,6 +401,13 @@ export class DefaultApiResponseProcessor {
                 "AiSearchResult", ""
             ) as AiSearchResult;
             return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: string = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "Invalid value for: query parameter pageMark, Invalid value for: query parameter pageSize", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
             const body: RetMsg = ObjectSerializer.deserialize(
