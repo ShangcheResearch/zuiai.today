@@ -15,6 +15,7 @@ import { HttpFile } from '../http/http';
 export class AIArticle {
     'title': string;
     'markdown': string;
+    'tags'?: Array<string>;
     'date': string;
     'author': string;
     'url'?: string;
@@ -32,6 +33,12 @@ export class AIArticle {
             "name": "markdown",
             "baseName": "markdown",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "tags",
+            "baseName": "tags",
+            "type": "Array<string>",
             "format": ""
         },
         {

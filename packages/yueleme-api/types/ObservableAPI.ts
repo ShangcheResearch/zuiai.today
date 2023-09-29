@@ -34,9 +34,11 @@ export class ObservableDefaultApi {
     }
 
     /**
+     * @param pageMark 
+     * @param pageSize 
      */
-    public getApiMeditationV1TapirAiFeeds(_options?: Configuration): Observable<NoSqlPagingListDataPageMarkAIFeed> {
-        const requestContextPromise = this.requestFactory.getApiMeditationV1TapirAiFeeds(_options);
+    public getApiMeditationV1TapirAiFeeds(pageMark?: number, pageSize?: number, _options?: Configuration): Observable<NoSqlPagingListDataPageMarkAIFeed> {
+        const requestContextPromise = this.requestFactory.getApiMeditationV1TapirAiFeeds(pageMark, pageSize, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -55,9 +57,12 @@ export class ObservableDefaultApi {
     }
 
     /**
+     * @param pageMark 
+     * @param pageSize 
+     * @param tag 
      */
-    public getApiMeditationV1TapirAiPosts(_options?: Configuration): Observable<NoSqlPagingListDataPageMarkAIArticle> {
-        const requestContextPromise = this.requestFactory.getApiMeditationV1TapirAiPosts(_options);
+    public getApiMeditationV1TapirAiPosts(pageMark?: number, pageSize?: number, tag?: string, _options?: Configuration): Observable<NoSqlPagingListDataPageMarkAIArticle> {
+        const requestContextPromise = this.requestFactory.getApiMeditationV1TapirAiPosts(pageMark, pageSize, tag, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -118,9 +123,11 @@ export class ObservableDefaultApi {
     }
 
     /**
+     * @param pageMark 
+     * @param pageSize 
      */
-    public getApiMeditationV1TapirAiSearch(_options?: Configuration): Observable<AiSearchResult> {
-        const requestContextPromise = this.requestFactory.getApiMeditationV1TapirAiSearch(_options);
+    public getApiMeditationV1TapirAiSearch(pageMark?: number, pageSize?: number, _options?: Configuration): Observable<AiSearchResult> {
+        const requestContextPromise = this.requestFactory.getApiMeditationV1TapirAiSearch(pageMark, pageSize, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);

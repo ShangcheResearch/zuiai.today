@@ -20,9 +20,39 @@ import { ObservableDefaultApi } from "./ObservableAPI";
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
 
 export interface DefaultApiGetApiMeditationV1TapirAiFeedsRequest {
+    /**
+     * 
+     * @type number
+     * @memberof DefaultApigetApiMeditationV1TapirAiFeeds
+     */
+    pageMark?: number
+    /**
+     * 
+     * @type number
+     * @memberof DefaultApigetApiMeditationV1TapirAiFeeds
+     */
+    pageSize?: number
 }
 
 export interface DefaultApiGetApiMeditationV1TapirAiPostsRequest {
+    /**
+     * 
+     * @type number
+     * @memberof DefaultApigetApiMeditationV1TapirAiPosts
+     */
+    pageMark?: number
+    /**
+     * 
+     * @type number
+     * @memberof DefaultApigetApiMeditationV1TapirAiPosts
+     */
+    pageSize?: number
+    /**
+     * 
+     * @type string
+     * @memberof DefaultApigetApiMeditationV1TapirAiPosts
+     */
+    tag?: string
 }
 
 export interface DefaultApiGetApiMeditationV1TapirAiProjectsRequest {
@@ -32,6 +62,18 @@ export interface DefaultApiGetApiMeditationV1TapirAiPromptsRequest {
 }
 
 export interface DefaultApiGetApiMeditationV1TapirAiSearchRequest {
+    /**
+     * 
+     * @type number
+     * @memberof DefaultApigetApiMeditationV1TapirAiSearch
+     */
+    pageMark?: number
+    /**
+     * 
+     * @type number
+     * @memberof DefaultApigetApiMeditationV1TapirAiSearch
+     */
+    pageSize?: number
 }
 
 export interface DefaultApiGetApiMeditationV1TapirHorseLearningCurrentRequest {
@@ -51,14 +93,14 @@ export class ObjectDefaultApi {
      * @param param the request object
      */
     public getApiMeditationV1TapirAiFeeds(param: DefaultApiGetApiMeditationV1TapirAiFeedsRequest = {}, options?: Configuration): Promise<NoSqlPagingListDataPageMarkAIFeed> {
-        return this.api.getApiMeditationV1TapirAiFeeds( options).toPromise();
+        return this.api.getApiMeditationV1TapirAiFeeds(param.pageMark, param.pageSize,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public getApiMeditationV1TapirAiPosts(param: DefaultApiGetApiMeditationV1TapirAiPostsRequest = {}, options?: Configuration): Promise<NoSqlPagingListDataPageMarkAIArticle> {
-        return this.api.getApiMeditationV1TapirAiPosts( options).toPromise();
+        return this.api.getApiMeditationV1TapirAiPosts(param.pageMark, param.pageSize, param.tag,  options).toPromise();
     }
 
     /**
@@ -79,7 +121,7 @@ export class ObjectDefaultApi {
      * @param param the request object
      */
     public getApiMeditationV1TapirAiSearch(param: DefaultApiGetApiMeditationV1TapirAiSearchRequest = {}, options?: Configuration): Promise<AiSearchResult> {
-        return this.api.getApiMeditationV1TapirAiSearch( options).toPromise();
+        return this.api.getApiMeditationV1TapirAiSearch(param.pageMark, param.pageSize,  options).toPromise();
     }
 
     /**

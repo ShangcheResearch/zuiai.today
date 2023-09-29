@@ -27,7 +27,12 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
-let body:any = {};
+let body:.DefaultApiGetApiMeditationV1TapirAiFeedsRequest = {
+  // number (optional)
+  pageMark: 1,
+  // number (optional)
+  pageSize: 1,
+};
 
 apiInstance.getApiMeditationV1TapirAiFeeds(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -36,7 +41,11 @@ apiInstance.getApiMeditationV1TapirAiFeeds(body).then((data:any) => {
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageMark** | [**number**] |  | (optional) defaults to undefined
+ **pageSize** | [**number**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -50,13 +59,14 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
+**400** | Invalid value for: query parameter pageMark, Invalid value for: query parameter pageSize |  -  |
 **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
@@ -75,7 +85,14 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
-let body:any = {};
+let body:.DefaultApiGetApiMeditationV1TapirAiPostsRequest = {
+  // number (optional)
+  pageMark: 1,
+  // number (optional)
+  pageSize: 1,
+  // string (optional)
+  tag: "tag_example",
+};
 
 apiInstance.getApiMeditationV1TapirAiPosts(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -84,7 +101,12 @@ apiInstance.getApiMeditationV1TapirAiPosts(body).then((data:any) => {
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageMark** | [**number**] |  | (optional) defaults to undefined
+ **pageSize** | [**number**] |  | (optional) defaults to undefined
+ **tag** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -98,13 +120,14 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
+**400** | Invalid value for: query parameter pageMark, Invalid value for: query parameter pageSize, Invalid value for: query parameter tag |  -  |
 **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
@@ -219,7 +242,12 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
-let body:any = {};
+let body:.DefaultApiGetApiMeditationV1TapirAiSearchRequest = {
+  // number (optional)
+  pageMark: 1,
+  // number (optional)
+  pageSize: 1,
+};
 
 apiInstance.getApiMeditationV1TapirAiSearch(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -228,7 +256,11 @@ apiInstance.getApiMeditationV1TapirAiSearch(body).then((data:any) => {
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageMark** | [**number**] |  | (optional) defaults to undefined
+ **pageSize** | [**number**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -242,13 +274,14 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
+**400** | Invalid value for: query parameter pageMark, Invalid value for: query parameter pageSize |  -  |
 **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

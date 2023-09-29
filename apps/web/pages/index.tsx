@@ -1,6 +1,6 @@
 import { Anchor, Button, Stack, Text } from "@mantine/core";
 import Head from "next/head";
-import {Posts} from "../components/post";
+import { Posts } from "../components/post";
 
 export default function Home() {
   return (
