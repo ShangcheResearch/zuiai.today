@@ -15,9 +15,13 @@
   ],
   "license": "Unlicense",
   "main": "./dist/index.js",
-  "type": "commonjs",
+  "module": "./index.ts",
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "module": "./index.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
   },
   "typings": "./dist/index.d.ts",
   "scripts": {
