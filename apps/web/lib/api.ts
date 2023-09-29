@@ -4,23 +4,24 @@ import {
   DefaultApi,
   ServerConfiguration,
 } from "@app/yueleme-api";
-
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig()
 export const oneOneApi = new DefaultApi(
   createConfiguration({
     baseServer: new ServerConfiguration(
       // @ts-ignore
-      process.env.NEXT_PUBLIC_BACKEND_API,
+        publicRuntimeConfig.publicApi,
       {}
     ),
     promiseMiddleware: [
       {
         post: (req) => {
-          return new Promise((resolve, reject) => resolve(req));
+          return new Promise((resolve) => resolve(req));
         },
         pre: async (req) => {
-          const cookie1 = req.getHeaders();
-          const cookie = req.getHeaders()["LQ_AUTH"];
-          return new Promise((resolve, reject) => {
+          req.getHeaders();
+            req.getHeaders()["LQ_AUTH"];
+            return new Promise((resolve) => {
             resolve(req);
           });
         },
