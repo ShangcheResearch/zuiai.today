@@ -9,10 +9,10 @@ COPY package.json pnpm-lock.yaml ./
 
 # Install any needed packages specified in package.json
 RUN npm install -g pnpm
-RUN pnpm install
 
 # Copy the rest of the working directory contents into the container
 COPY . .
+RUN pnpm install
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
