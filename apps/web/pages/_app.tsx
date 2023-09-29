@@ -8,7 +8,6 @@ import { UserProvider } from "@auth0/nextjs-auth0/client";
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
 
-  // @ts-ignore
   return (
     <>
       <Head>
