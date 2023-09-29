@@ -15,7 +15,6 @@ export default function Tags() {
     const router = useRouter()
     const p = useParams();
     const tag = p?.tag ?? 'AI'
-        //Array.isArray(router.query.tag) ? router.query.tag[0]: router.query.tag
     return (
         <>
             <Head>
