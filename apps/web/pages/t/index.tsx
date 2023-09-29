@@ -1,6 +1,4 @@
-import { Anchor, Button, Stack, Text } from "@mantine/core";
 import Head from "next/head";
-import { Posts } from "../../components/post";
 import {useRouter} from "next/router";
 import React, {FC} from "react";
 
@@ -13,7 +11,7 @@ const A = dynamic(() => Promise.resolve(NoSsrPosts), {
 })
 
 
-export default function Home() {
+export default function Tags() {
     const router = useRouter()
     const p = useParams();
     const tag = p?.tag ?? 'AI'
