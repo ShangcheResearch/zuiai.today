@@ -6,6 +6,7 @@ import React, {FC} from "react";
 
 import dynamic from 'next/dynamic'
 import NoSsrPosts from '../../components/load';
+import {useParams} from "next/navigation";
 
 const A = dynamic(() => Promise.resolve(NoSsrPosts), {
     ssr: false
@@ -14,7 +15,9 @@ const A = dynamic(() => Promise.resolve(NoSsrPosts), {
 
 export default function Home() {
     const router = useRouter()
-    const tag = Array.isArray(router.query.tag) ? router.query.tag[0]: router.query.tag
+    const p = useParams();
+    const tag = p?.tag ?? 'AI'
+        //Array.isArray(router.query.tag) ? router.query.tag[0]: router.query.tag
     return (
         <>
             <Head>

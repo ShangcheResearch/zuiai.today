@@ -70,7 +70,8 @@ export function ArticlesCardsGrid({ data }: { data: AIArticle[] }) {
                         <Badge key={tag} color="blue"
                                onClick={(e) => {
                                    console.log('e', e)
-                                   window.open(`/tag/${tag}`, '_blank')
+                                   // window.open(`/tag/${tag}`, '_blank')
+                                   window.open(`/tags?tag=${tag}`, '_blank')
                                    e.stopPropagation();
                                    e.preventDefault();
                                }
