@@ -71,7 +71,7 @@ export function ArticlesCardsGrid({ data }: { data: AIArticle[] }) {
                                onClick={(e) => {
                                    console.log('e', e)
                                    // window.open(`/tag/${tag}`, '_blank')
-                                   window.open(`/t?tag=${tag}`, '_blank')
+                                   window.open(`/t/post?tag=${tag}`, '_blank')
                                    e.stopPropagation();
                                    e.preventDefault();
                                }
