@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDotEnv": [".env"],
-  "globalDependencies": ["**/.env.*local"],
+  "globalDotEnv": [".envrc"],
+  "globalDependencies": ["**/.envrc"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
@@ -13,11 +13,11 @@
       "cache": false,
       "env": ["NEXT_PUBLIC_BACKEND_API"],
       "persistent": true,
-       "dotEnv": [".env.production.local", ".env.local", ".env.production", ".env"]
+       "dotEnv": [".env.production.local", ".envrc", ".env.production", ".env"]
     },
     "start": {
       "env": ["NEXT_PUBLIC_BACKEND_API"],
-      "dotEnv": [".env.production.local", ".env.local", ".env.production", ".env"]
+      "dotEnv": [".env.production.local", ".envrc", ".env.production", ".env"]
     }
   }
 }
