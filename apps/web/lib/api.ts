@@ -5,12 +5,12 @@ import {
   ServerConfiguration,
 } from "@app/yueleme-api";
 import getConfig from "next/config";
-const { publicRuntimeConfig } = getConfig()
+const { publicRuntimeConfig } = getConfig();
 export const oneOneApi = new DefaultApi(
   createConfiguration({
     baseServer: new ServerConfiguration(
       // @ts-ignore
-        publicRuntimeConfig.publicApi,
+      publicRuntimeConfig.publicApi,
       {}
     ),
     promiseMiddleware: [
@@ -20,8 +20,8 @@ export const oneOneApi = new DefaultApi(
         },
         pre: async (req) => {
           req.getHeaders();
-            req.getHeaders()["LQ_AUTH"];
-            return new Promise((resolve) => {
+          req.getHeaders()["LQ_AUTH"];
+          return new Promise((resolve) => {
             resolve(req);
           });
         },

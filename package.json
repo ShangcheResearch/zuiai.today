@@ -6,7 +6,7 @@
     "dev:web": "turbo run dev --filter=web",
     "start:web": "turbo run start --filter=web",
     "lint": "turbo run lint",
-    "format": "prettier --write \"apps/web/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/apps/web/**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",

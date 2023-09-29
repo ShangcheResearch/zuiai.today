@@ -1,25 +1,26 @@
-import React, {FC, useEffect} from "react";
+import React, { FC, useEffect } from "react";
 import { HeaderSimple } from "./header";
 import { oneOneApi } from "../lib/api";
 import { useQuery } from "react-query";
 import {
-    AspectRatio,
-    Badge,
-    Box,
-    Card,
-    Container,
-    createStyles,
-    Flex, Grid,
-    Image,
-    SimpleGrid,
-    Skeleton,
-    Text,
+  AspectRatio,
+  Badge,
+  Box,
+  Card,
+  Container,
+  createStyles,
+  Flex,
+  Grid,
+  Image,
+  SimpleGrid,
+  Skeleton,
+  Text,
 } from "@mantine/core";
 import { AIArticle } from "@app/yueleme-api";
 import { Overlay } from "@mantine/core";
 import dayjs from "dayjs";
 import Link from "next/link";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -64,22 +65,23 @@ export function ArticlesCardsGrid({ data }: { data: AIArticle[] }) {
       <Text className={classes.title} mt={5}>
         {article.title}
       </Text>
-        <Box >
-            {
-                article.tags?.map(tag => (
-                        <Badge key={tag} color="blue"
-                               onClick={(e) => {
-                                   console.log('e', e)
-                                   // window.open(`/tag/${tag}`, '_blank')
-                                   window.open(`/t/post?tag=${tag}`, '_blank')
-                                   e.stopPropagation();
-                                   e.preventDefault();
-                               }
-                               }
-                        >{tag}</Badge>
-                ))
-            }
-        </Box>
+      <Box>
+        {article.tags?.map((tag) => (
+          <Badge
+            key={tag}
+            color="blue"
+            onClick={(e) => {
+              console.log("e", e);
+              // window.open(`/tag/${tag}`, '_blank')
+              window.open(`/t/post?tag=${tag}`, "_blank");
+              e.stopPropagation();
+              e.preventDefault();
+            }}
+          >
+            {tag}
+          </Badge>
+        ))}
+      </Box>
     </Card>
   ));
 
@@ -92,14 +94,15 @@ export function ArticlesCardsGrid({ data }: { data: AIArticle[] }) {
   );
 }
 
- export const Posts: FC<{
-  tag?: string
- }>  = ({tag}) =>  {
+export const Posts: FC<{
+  tag?: string;
+}> = ({ tag }) => {
   const { data, isLoading } = useQuery(
     oneOneApi.getApiMeditationV1TapirAiPosts.toString(),
-    () => oneOneApi.getApiMeditationV1TapirAiPosts({
-      tag,
-    })
+    () =>
+      oneOneApi.getApiMeditationV1TapirAiPosts({
+        tag,
+      })
   );
 
   return (
@@ -121,4 +124,4 @@ export function ArticlesCardsGrid({ data }: { data: AIArticle[] }) {
       </Flex>
     </>
   );
-}
+};
