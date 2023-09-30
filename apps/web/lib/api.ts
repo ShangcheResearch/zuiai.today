@@ -14,7 +14,7 @@ export const oneOneApi = new DefaultApi(
   createConfiguration({
     baseServer: new ServerConfiguration(
       // @ts-ignore
-      publicRuntimeConfig.publicApi,
+      publicRuntimeConfig.NEXT_PUBLIC_BACKEND_API,
       {}
     ),
     promiseMiddleware: [

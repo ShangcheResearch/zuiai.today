@@ -8,7 +8,7 @@ module.exports = {
   serverRuntimeConfig: {
   },
   publicRuntimeConfig: {
-    publicApi: process.env.NEXT_PUBLIC_BACKEND_API,
+    NEXT_PUBLIC_BACKEND_API: process.env.NEXT_PUBLIC_BACKEND_API,
   },
   transpilePackages: ["ui", "yueleme-api", "@app/yueleme-api"]
 };
