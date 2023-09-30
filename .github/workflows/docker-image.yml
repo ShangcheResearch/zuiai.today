@@ -32,7 +32,7 @@ jobs:
           DOCKERHUB_USERNAME=${{secrets.DOCKERHUB_USERNAME}}
           DOCKERHUB_TOKEN=${{secrets.DOCKERHUB_TOKEN}}
           DOCKER_REGISTRY=${{secrets.DOCKER_REGISTRY}}
-          PUBLIC_BACKEND_API=${{ secrets.NEXT_PUBLIC_BACKEND_API }}
+          NEXT_PUBLIC_BACKEND_API=${{ secrets.NEXT_PUBLIC_BACKEND_API }}
           AUTH0_SECRET=${{ secrets.AUTH0_SECRET }}
           AUTH0_BASE_URL=${{ secrets.AUTH0_BASE_URL }}
           AUTH0_ISSUER_BASE_URL=${{ secrets.AUTH0_ISSUER_BASE_URL }}
