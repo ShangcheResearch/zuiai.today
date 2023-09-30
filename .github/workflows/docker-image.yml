@@ -28,6 +28,9 @@ jobs:
       uses: docker/metadata-action@v5
       with:
         images: ${{secrets.DOCKER_REGISTRY}}/rang/zuijintoday
+        tags: |
+          type=schedule
+          type=sha
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
