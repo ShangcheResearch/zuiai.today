@@ -19,6 +19,7 @@ jobs:
     - name: Login to Docker Hub
       uses: docker/login-action@v3
       with:
+        registry: ${{ secrets.DOCKER_REGISTRY }}
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
@@ -34,4 +35,5 @@ jobs:
           AUTH0_ISSUER_BASE_URL=${{ secrets.AUTH0_ISSUER_BASE_URL }}
           AUTH0_CLIENT_ID=${{ secrets.AUTH0_CLIENT_ID }}
           AUTH0_CLIENT_SECRET=${{ secrets.AUTH0_CLIENT_SECRET }}
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/zuijintoday
+
+        tags: ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/zuijintoday
