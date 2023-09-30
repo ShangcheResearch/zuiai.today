@@ -9,6 +9,7 @@ const { publicRuntimeConfig } = getConfig();
 console.log("publicRuntimeConfig", publicRuntimeConfig);
 console.log("process.env.AUTH0_SECRET\n");
 console.log(process.env.AUTH0_SECRET);
+console.log(process.env.NEXT_PUBLIC_BACKEND_API);
 export const oneOneApi = new DefaultApi(
   createConfiguration({
     baseServer: new ServerConfiguration(
