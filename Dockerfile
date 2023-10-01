@@ -48,6 +48,7 @@ WORKDIR /app/apps/web
 
 
 RUN echo $NEXT_PUBLIC_BACKEND_API
+RUN echo ${AUTH0_BASE_URL}
 
 # Run the app when the container launches
 CMD ["npm", "run", "start"]
