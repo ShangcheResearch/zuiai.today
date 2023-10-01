@@ -1,4 +1,4 @@
-import { AppProps } from "next/app";
+import App, { AppProps } from "next/app";
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 import { queryClient } from "../components/react-query";
@@ -11,7 +11,8 @@ console.log("publicRuntimeConfig", publicRuntimeConfig);
 console.log("process.env.AUTH0_SECRET\n");
 console.log(process.env.NEXT_PUBLIC_BACKEND_API);
 
-export default function App(props: AppProps) {
+
+function App1(props: AppProps) {
   const { Component, pageProps } = props;
 
   // @ts-ignore
@@ -36,3 +37,12 @@ export default function App(props: AppProps) {
     </>
   );
 }
+
+
+App1.getInitialProps = async (appContext) => {
+    // calls page's `getInitialProps` and fills `appProps.pageProps`
+    const appProps = await App.getInitialProps(appContext);
+    return { ...appProps }
+}
+
+export default App1
