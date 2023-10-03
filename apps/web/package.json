@@ -24,6 +24,9 @@
     "@tanstack/query-core": "^4.29.11",
     "react-dom": "^18.2.0",
     "@app/yueleme-api": "workspace:*",
+    "@tiptap/react": "^2.1.11",
+    "@tiptap/pm": "^2.1.11",
+    "@tiptap/starter-kit": "^2.1.11",
     "ui": "workspace:*"
   },
   "devDependencies": {
