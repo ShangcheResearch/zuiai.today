@@ -41,15 +41,13 @@ RUN pnpm install
 EXPOSE 80
 RUN pnpm run build
 
-RUN cd apps/web
-
-WORKDIR /app/apps/web
-
-
-
-RUN echo ${NEXT_PUBLIC_BACKEND_API}
-RUN echo ${PUBLIC_BACKEND_API}
-
+#RUN cd apps/web
+#
+#WORKDIR /app/apps/web
+#
+#RUN echo ${NEXT_PUBLIC_BACKEND_API}
+#RUN echo ${PUBLIC_BACKEND_API}
+#
 # Run the app when the container launches
 CMD ["npm", "run", "start"]
 

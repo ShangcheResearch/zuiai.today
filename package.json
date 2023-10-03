@@ -5,12 +5,15 @@
     "dev": "turbo run dev",
     "dev:web": "turbo run dev --filter=web",
     "start:web": "turbo run start --filter=web",
+    "start:hocuspocus": "turbo run start --filter=hocuspocus",
+    "start": "turbo run start --filter=hocuspocus --filter=web",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/apps/web/**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
     "eslint": "^7.32.0",
+
     "eslint-config-custom": "workspace:*",
     "prettier": "^2.5.1",
     "turbo": "latest"
