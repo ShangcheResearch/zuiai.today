@@ -52,6 +52,7 @@ jobs:
         push: true
         build-args:
           DOCKERHUB_USERNAME=${{secrets.DOCKERHUB_USERNAME}}
+          NEXT_PUBLIC_COLLABORATION_API=${{secrets.NEXT_PUBLIC_COLLABORATION_API}}
           DOCKERHUB_TOKEN=${{secrets.DOCKERHUB_TOKEN}}
           DOCKER_REGISTRY=${{secrets.DOCKER_REGISTRY}}
           NEXT_PUBLIC_BACKEND_API=${{ secrets.NEXT_PUBLIC_BACKEND_API }}
