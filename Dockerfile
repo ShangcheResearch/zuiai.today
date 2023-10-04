@@ -39,6 +39,7 @@ RUN pnpm install
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
+EXPOSE 1234
 RUN pnpm run build
 
 #RUN cd apps/web
