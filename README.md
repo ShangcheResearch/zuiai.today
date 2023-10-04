@@ -83,3 +83,5 @@ Learn more about the power of Turborepo:
 
 ## website
 open http://www.zuiai.today
+open ws://www.zuiai.today
+
