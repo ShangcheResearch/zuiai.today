@@ -6,11 +6,14 @@ import Collaboration from '@tiptap/extension-collaboration'
 import CollaborationCursor from '@tiptap/extension-collaboration-cursor'
 import * as Y from 'yjs'
 import { HocuspocusProvider } from '@hocuspocus/provider'
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
 
 const ydoc = new Y.Doc();
 
 const provider = new HocuspocusProvider({
-    url: "ws://127.0.0.1:1234",
+    url: publicRuntimeConfig.NEXT_PUBLIC_COLLABORATION_API ??"ws://127.0.0.1:1234",
     name: "example-document",
     document: ydoc,
 });

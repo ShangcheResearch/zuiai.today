@@ -13,7 +13,8 @@
         "^build"
       ],
       "env": [
-        "NEXT_PUBLIC_BACKEND_API"
+        "NEXT_PUBLIC_BACKEND_API",
+        "NEXT_PUBLIC_COLLABORATION_API"
       ],
       "outputs": [
         ".next/**",
@@ -24,6 +25,7 @@
     "dev": {
       "cache": false,
       "env": [
+        "NEXT_PUBLIC_COLLABORATION_API",
         "NEXT_PUBLIC_BACKEND_API",
         "AUTH0_SECRET",
         "AUTH0_BASE_URL",
@@ -43,6 +45,7 @@
     "start": {
       "env": [
         "NEXT_PUBLIC_BACKEND_API",
+        "NEXT_PUBLIC_COLLABORATION_API",
         "AUTH0_SECRET",
         "AUTH0_BASE_URL",
         "AUTH0_ISSUER_BASE_URL",
