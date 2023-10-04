@@ -47,6 +47,7 @@ jobs:
       env: # Or as an environment variable
         DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         NEXT_PUBLIC_BACKEND_API: ${{ secrets.NEXT_PUBLIC_BACKEND_API }}
+        NEXT_PUBLIC_COLLABORATION_API: ${{ secrets.NEXT_PUBLIC_COLLABORATION_API }}
       with:
         context: .
         push: true

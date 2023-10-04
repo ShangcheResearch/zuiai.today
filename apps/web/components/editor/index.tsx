@@ -12,8 +12,10 @@ const { publicRuntimeConfig } = getConfig();
 
 const ydoc = new Y.Doc();
 
+const url = publicRuntimeConfig.NEXT_PUBLIC_COLLABORATION_API ?? "ws://127.0.0.1:1234"
+console.log(`url: ${url}`)
 const provider = new HocuspocusProvider({
-    url: publicRuntimeConfig.NEXT_PUBLIC_COLLABORATION_API ??"ws://127.0.0.1:1234",
+    url: url,
     name: "example-document",
     document: ydoc,
 });
