@@ -15,7 +15,7 @@ const ydoc = new Y.Doc();
 const url = publicRuntimeConfig.NEXT_PUBLIC_COLLABORATION_API ?? "ws://127.0.0.1:1234"
 console.log(`url: ${url}`)
 const provider = new HocuspocusProvider({
-    token: '',
+    token: 'caedman_token',
     url: "ws://collaboration.zuiai.today",
     name: "example-document",
     document: ydoc,
