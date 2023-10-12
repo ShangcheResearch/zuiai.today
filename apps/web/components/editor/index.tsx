@@ -16,7 +16,7 @@ const url = publicRuntimeConfig.NEXT_PUBLIC_COLLABORATION_API ?? "ws://127.0.0.1
 console.log(`url: ${url}`)
 const provider = new HocuspocusProvider({
     token: 'caedman_token',
-    url: "ws://collaboration.zuiai.today",
+    url: `wss://collaboration.zuiai.today`,
     name: "example-document",
     document: ydoc,
 });
